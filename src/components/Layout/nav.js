@@ -6,7 +6,7 @@ import styled from "styled-components"
 const NavCustom = styled(Nav)`
    .nav-link {
       letter-spacing: 5px;
-      font-size: 15px;
+      font-size: 14px;
    }
 `
 
