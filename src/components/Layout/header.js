@@ -1,26 +1,27 @@
 import PropTypes from "prop-types"
 import React from "react"
-import { Container } from 'react-bootstrap'
-import styled from 'styled-components'
+import { Container } from "react-bootstrap"
+import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import Image from 'gatsby-image'
+import Image from "gatsby-image"
+import Navbar from "./nav"
 
 const SectionHeader = styled.header`
    min-height: 100vh;
    position: relative;
    display: flex;
    align-items: center;
-   &::before{
-      content: '';
+   &::before {
+      content: "";
       position: absolute;
       left: 0;
       right: 0;
       top: 0;
       bottom: 0;
-      background: rgba(0,0,0,.8);
+      background: rgba(0, 0, 0, 0.8);
       z-index: -1;
    }
-   .container{
+   .container {
       width: 100%;
    }
 `
@@ -40,7 +41,7 @@ const Creative = styled.p`
 const Header = ({ siteTitle }) => {
    const data = useStaticQuery(graphql`
       query {
-         file(relativePath: {eq: "header.jpg"}) {
+         file(relativePath: { eq: "header.jpg" }) {
             childImageSharp {
                fluid(maxWidth: 1600) {
                   ...GatsbyImageSharpFluid
@@ -53,20 +54,21 @@ const Header = ({ siteTitle }) => {
       <SectionHeader className="py-5">
          <Img as={Image} fluid={data.file.childImageSharp.fluid} />
          <Container className="text-white text-center">
-            <h2>Portfolio</h2>
+            <h2>PORTFOLIO</h2>
             <Creative>this is me being creative</Creative>
+            <br />
+            <Navbar />
          </Container>
       </SectionHeader>
    )
 }
 
-
 Header.propTypes = {
-  siteTitle: PropTypes.string,
+   siteTitle: PropTypes.string,
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+   siteTitle: ``,
 }
 
 export default Header
